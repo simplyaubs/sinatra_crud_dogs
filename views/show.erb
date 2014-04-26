@@ -1,0 +1,9 @@
+<h1><%= single_dog[:name] %></h1>
+
+<form action="/dogs/<%= single_dog[:id] %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <input type="text" name="name" value="<%= single_dog[:name] %>">
+  <input type="text" name="breed" value="<%= single_dog[:breed] %>">
+  <input type="text" name="puppies" value="<%= single_dog[:puppies] %>">
+  <input type="submit" value="Update Dog">
+</form>

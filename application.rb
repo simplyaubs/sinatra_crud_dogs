@@ -23,4 +23,17 @@ class Application < Sinatra::Application
     DB[:dogs].insert(name: params[:name], breed: params[:breed], puppies: params[:puppies])
     redirect '/'
   end
+
+  get '/dogs/:id' do
+    dog_id = params[:id]
+    erb :show, locals: { single_dog: DB[:dogs][id: dog_id] }
+  end
+
+  put '/dogs/:id' do
+    dog_id = params[:id]
+    DB[:dogs].where(id: dog_id).update(name: params[:name], breed: params[:breed], puppies: params[:puppies])
+    redirect "/dogs/#{params[:id]}"
+  end
+
+
 end
