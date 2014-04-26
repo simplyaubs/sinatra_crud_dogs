@@ -26,4 +26,15 @@ feature 'Homepage' do
     expect(page).to have_content('Tucker')
     expect(page).to_not have_content('Rufus')
   end
+
+  scenario 'User can destroy dog' do
+    visit '/dogs/new'
+    fill_in 'name', with: 'Rufus'
+    fill_in 'breed', with: 'French Mastiff'
+    fill_in 'puppies', with: 9
+    click_on 'Create Dog'
+    click_on 'Rufus'
+    click_on 'Destroy Dog'
+    expect(page).to_not have_content('Rufus')
+  end
 end

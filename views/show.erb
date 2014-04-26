@@ -7,3 +7,10 @@
   <input type="text" name="puppies" value="<%= single_dog[:puppies] %>">
   <input type="submit" value="Update Dog">
 </form>
+
+<form action="/dogs/<%= single_dog[:id] %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Destroy Dog">
+</form>
+
+<a href="/">Back to list of dogs</a>
