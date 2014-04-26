@@ -9,6 +9,6 @@ Sequel.migration do
   end
 
   down do
-    drop_table(:dogs) 
+    drop_table(:dogs)
   end
 end

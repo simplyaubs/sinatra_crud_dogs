@@ -12,6 +12,15 @@ class Application < Sinatra::Application
   end
 
   get '/' do
-    erb :index
+    erb :index, locals: { list_of_dogs: DB[:dogs].to_a }
+  end
+
+  get '/dogs/new' do
+    erb :new
+  end
+
+  post '/dogs' do
+    DB[:dogs].insert(name: params[:name], breed: params[:breed], puppies: params[:puppies])
+    redirect '/'
   end
 end
